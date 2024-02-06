@@ -28,9 +28,9 @@ int	no_character(int j, int i, char *str)
 
 int	next_number(int j, int i, char *str)
 {
-	if(str[i] >= '0' && str[i] <= '9')
+	if(str[j] >= '0' && str[j] <= '9')
 	{
-		if(str[i + 1] >= '0' && str[i + 1] <= '9')
+		if(str[j + 1] >= 'a' && str[j + 1] <= 'z')
 			i = 1;
 	}
 	return (i);
@@ -54,9 +54,11 @@ char	*ft_strcapitalize(char *str)
 {
 	int	j;
 	int	i;
+	int	r;
 
 	j = 0;
-	i = 1;
+	i = 0;
+	r = 0;
 	alowcase(str);
 	while (str[j] != '\0')
 	{
@@ -66,22 +68,23 @@ char	*ft_strcapitalize(char *str)
 			str[j] -= 32;
 		}
 		i = 1;
+		r = j;
 		while (str[j] != '\0' && i)
 		{
-			j++;
 			i = no_space(j, i, str);
 			i = no_character(j, i, str);
 			i = next_number(j, i, str);
+			j++;
 		}
-		j++;
+		if (j == r)
+			j++;
 	}
 	return (str);
 }
 
 int main()
 {
-	char	str[] ="salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-
+	char	str[] ="salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un. f. f f";
 		
 	printf("%s", ft_strcapitalize(str));
 }
