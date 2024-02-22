@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 08:03:16 by davigome          #+#    #+#             */
-/*   Updated: 2024/02/18 23:31:33 by thedeivi         ###   ########.fr       */
+/*   Created: 2024/02/20 13:04:54 by davigome          #+#    #+#             */
+/*   Updated: 2024/02/20 13:04:59 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-int	ft_recursive_power(int nb, int power)
+int	ft_fibonacci(int index)
 {
-	if (power < 0)
+	if (index < 0)
+		return (-1);
+	if (index == 0)
 		return (0);
-	if (power == 0)
+	if (index == 1)
 		return (1);
-	return (nb * ft_recursive_power(nb, power - 1));
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 /*
-int	main(void)
+int main()
 {
-	printf("%d", ft_recursive_power(5, 0));
-	return  0;
+	printf("%d", ft_fibonacci(6));
 }*/

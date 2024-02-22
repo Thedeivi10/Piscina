@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davigome <davigome@studen.42malaga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 08:03:16 by davigome          #+#    #+#             */
-/*   Updated: 2024/02/18 23:31:33 by thedeivi         ###   ########.fr       */
+/*   Created: 2024/02/20 16:55:36 by davigome          #+#    #+#             */
+/*   Updated: 2024/02/20 16:55:39 by davigome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_recursive_power(int nb, int power)
+int	main(int argc, char **argv)
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	return (nb * ft_recursive_power(nb, power - 1));
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i++;
+	}
 }
-/*
-int	main(void)
-{
-	printf("%d", ft_recursive_power(5, 0));
-	return  0;
-}*/
